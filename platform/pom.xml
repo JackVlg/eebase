@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>tech.eebase</groupId>
+    <artifactId>root</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>eebase-ear</module>
+        <module>directories</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        
+        <version.ear.plugin>2.10</version.ear.plugin>
+<!--        <version.compiler.plugin>3.1</version.compiler.plugin>-->
+<!--        <version.ejb.plugin>2.5.1</version.ejb.plugin>-->
+<!--        <version.war.plugin>3.3.1</version.war.plugin>-->
+<!--        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>-->
+<!--        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>-->
+
+
+        <!-- Third party libs versions -->
+
+        <wildfly.server>37.0.0.Final</wildfly.server>
+        <jakartaee.version>10.0.0</jakartaee.version>
+        <primefaces.version>15.0.6</primefaces.version>
+        <primefaces.themes.version>15.0.6</primefaces.themes.version>
+        <rewrite.servlet.version>10.0.2.Final</rewrite.servlet.version>
+        <omnifaces.version>4.6.5</omnifaces.version>
+
+        <!-- Test libs versions -->
+
+        <junit.version>4.12</junit.version>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+        
+            <!-- Modules -->
+        
+            <dependency>
+                <groupId>tech.eebase</groupId>
+                <artifactId>directories-internal-api</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.eebase</groupId>
+                <artifactId>directories-impl</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.eebase</groupId>
+                <artifactId>built-in-directories</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            
+            <!-- Third party -->
+            
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>wildfly-ee</artifactId>
+                <version>${wildfly.server}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>${jakartaee.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+
+        
+    </dependencyManagement>
+
+</project>

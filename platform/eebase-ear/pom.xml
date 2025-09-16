@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tech.eebase</groupId>
+        <artifactId>root</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>eebase-ear</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>tech.eebase</groupId>
+            <artifactId>directories-internal-api</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>tech.eebase</groupId>
+            <artifactId>built-in-directories</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>tech.eebase</groupId>
+            <artifactId>directories-impl</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>eebase-platform</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.ear.plugin}</version>
+                <configuration>
+                    <version>7</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <fileNameMapping>no-version</fileNameMapping>
+
+                    <applicationName>aura-platform</applicationName>
+
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Dependencies>
+                            </Dependencies>
+                            <Add-Opens>
+                            </Add-Opens>
+                        </manifestEntries>
+                    </archive>
+
+                    <modules>
+                        <jarModule>
+                            <groupId>tech.eebase</groupId>
+                            <artifactId>directories-internal-api</artifactId>
+                            <excluded>false</excluded>
+                        </jarModule>
+                        <jarModule>
+                            <groupId>tech.eebase</groupId>
+                            <artifactId>built-in-directories</artifactId>
+                            <excluded>false</excluded>
+                        </jarModule>
+                        <ejbModule>
+                            <groupId>tech.eebase</groupId>
+                            <artifactId>directories-impl</artifactId>
+                            <excluded>false</excluded>
+                        </ejbModule>
+                    </modules>
+
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
