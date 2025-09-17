@@ -23,7 +23,7 @@ public class DirectoriesStarter {
     
     @PostConstruct
     public void init() {
-        LOG.info("Directores module init started!!");
+        LOG.info("Directores module init started!!!");
         
         Set<EntityType<?>> entities = em.getMetamodel().getEntities();
         for (EntityType<?> entity : entities) { 
