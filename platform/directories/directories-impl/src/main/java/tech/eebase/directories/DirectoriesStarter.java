@@ -1,5 +1,6 @@
 package tech.eebase.directories;
 
+import java.lang.reflect.Modifier;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import jakarta.ejb.Startup;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.metamodel.EntityType;
+import tech.eebase.directories.annotations.Directory;
 
 @Singleton
 @Startup
@@ -23,23 +25,26 @@ public class DirectoriesStarter {
     
     @PostConstruct
     public void init() {
-        LOG.info("Directores module init started");
+        LOG.debug("Directores module init started");
         
         Set<EntityType<?>> entities = em.getMetamodel().getEntities();
-        for (EntityType<?> entity : entities) { 
-            LOG.info("**** {}", entity.getJavaType());
+        for (EntityType<?> entity : entities) {
+            Class<?> entityClass = entity.getJavaType();
+            if (!Modifier.isAbstract(entityClass.getModifiers())) {
+                if (DirectoryBase.class.isAssignableFrom(entityClass)) {
+                    Directory directoryAnnotation = entityClass.getAnnotation(Directory.class);
+                    if (directoryAnnotation != null) {
+                        LOG.info("Found directory class {}", entityClass.getName());
+                    } else {
+                        LOG.warn("Found class {} child of {} but has no annotation {}", 
+                                entityClass.getName(),
+                                DirectoryBase.class.getName(),
+                                Directory.class.getName());
+                    }
+                }
+            }
         }
         
-        
-//        instances.forEach(instance -> {
-//            LOG.info("Found: " + instance.getClass().getName());
-//        });
-        
-//        BeanManager beanManager = CDI.current().getBeanManager();
-//        @SuppressWarnings("serial")
-//        Set<Bean<?>> beans = beanManager.getBeans(Object.class, new DirectoryAnnotation() {});
-//        for (Bean<?> bean : beans) {
-//            LOG.info("Found bean {} marked as a Dictionary", bean.getBeanClass());
-//        }
+        LOG.info("Directores module init finished");
     }
 }
