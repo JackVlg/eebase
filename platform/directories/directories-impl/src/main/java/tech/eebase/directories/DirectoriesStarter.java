@@ -30,8 +30,8 @@ public class DirectoriesStarter {
         Set<EntityType<?>> entities = em.getMetamodel().getEntities();
         for (EntityType<?> entity : entities) {
             Class<?> entityClass = entity.getJavaType();
-            if (!Modifier.isAbstract(entityClass.getModifiers())) {
-                if (DirectoryBase.class.isAssignableFrom(entityClass)) {
+            if (DirectoryBase.class.isAssignableFrom(entityClass)) {
+                if (!Modifier.isAbstract(entityClass.getModifiers())) {
                     Directory directoryAnnotation = entityClass.getAnnotation(Directory.class);
                     if (directoryAnnotation != null) {
                         LOG.info("Found directory class {}", entityClass.getName());
@@ -41,6 +41,10 @@ public class DirectoriesStarter {
                                 DirectoryBase.class.getName(),
                                 Directory.class.getName());
                     }
+                } else {
+                    LOG.debug("Found class {} child of {} but class is abstract, base for other directories", 
+                            entityClass.getName(),
+                            DirectoryBase.class.getName());
                 }
             }
         }

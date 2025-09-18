@@ -12,6 +12,7 @@
     <modules>
         <module>eebase-ear</module>
         <module>directories</module>
+        <module>core</module>
     </modules>
 
     <properties>
