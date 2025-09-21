@@ -4,12 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>tech.eebase</groupId>
-        <artifactId>root</artifactId>
+        <artifactId>security</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>core</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>security</module>
-    </modules>
+    <artifactId>security-internal-api</artifactId>
 </project>

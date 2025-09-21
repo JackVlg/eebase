@@ -13,6 +13,7 @@
         <module>eebase-ear</module>
         <module>directories</module>
         <module>core</module>
+        <module>web-ui</module>
     </modules>
 
     <properties>
@@ -64,6 +65,16 @@
             <dependency>
                 <groupId>tech.eebase</groupId>
                 <artifactId>built-in-directories</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.eebase</groupId>
+                <artifactId>security-internal-api</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.eebase</groupId>
+                <artifactId>web-ui</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             
