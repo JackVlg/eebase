@@ -26,19 +26,20 @@
         <maven.compiler.source>21</maven.compiler.source>
         
         <version.ear.plugin>2.10</version.ear.plugin>
-<!--        <version.compiler.plugin>3.1</version.compiler.plugin>-->
-<!--        <version.ejb.plugin>2.5.1</version.ejb.plugin>-->
 <!--        <version.war.plugin>3.3.1</version.war.plugin>-->
-<!--        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>-->
-<!--        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>-->
-
+        <version.compiler.plugin>3.1</version.compiler.plugin>
+        <version.ejb.plugin>2.5.1</version.ejb.plugin>
+        
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
 
         <!-- Third party libs versions -->
 
         <wildfly.server>37.0.0.Final</wildfly.server>
         <jakartaee.version>10.0.0</jakartaee.version>
         <primefaces.version>15.0.6</primefaces.version>
-        <primefaces.themes.version>15.0.6</primefaces.themes.version>
+        <primefaces.themes.version>1.0.10</primefaces.themes.version>
+        <primefaces.extensions.version>15.0.6</primefaces.extensions.version>
         <rewrite.servlet.version>10.0.2.Final</rewrite.servlet.version>
         <omnifaces.version>4.6.5</omnifaces.version>
 
@@ -57,21 +58,25 @@
                 <artifactId>directories-internal-api</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
+            
             <dependency>
                 <groupId>tech.eebase</groupId>
                 <artifactId>directories-impl</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
+            
             <dependency>
                 <groupId>tech.eebase</groupId>
                 <artifactId>built-in-directories</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
+            
             <dependency>
                 <groupId>tech.eebase</groupId>
                 <artifactId>security-internal-api</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
+            
             <dependency>
                 <groupId>tech.eebase</groupId>
                 <artifactId>web-ui</artifactId>
@@ -87,14 +92,58 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            
             <dependency>
                 <groupId>jakarta.platform</groupId>
                 <artifactId>jakarta.jakartaee-api</artifactId>
                 <version>${jakartaee.version}</version>
                 <scope>provided</scope>
             </dependency>
-        </dependencies>
+            
+            <dependency>
+                <groupId>org.primefaces</groupId>
+                <artifactId>primefaces</artifactId>
+                <classifier>jakarta</classifier>
+                <version>${primefaces.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>jakarta.platform</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.primefaces.themes</groupId>
+                <artifactId>all-themes</artifactId>
+                <version>${primefaces.themes.version}</version>
+            </dependency>
 
+            <dependency>
+                <groupId>org.primefaces.extensions</groupId>
+                <artifactId>primefaces-extensions</artifactId>
+                <version>${primefaces.extensions.version}</version>
+                <classifier>jakarta</classifier>
+            </dependency>
+
+            <dependency>
+                <groupId>org.omnifaces</groupId>
+                <artifactId>omnifaces</artifactId>
+                <version>${omnifaces.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.ocpsoft.rewrite</groupId>
+                <artifactId>rewrite-servlet</artifactId>
+                <version>${rewrite.servlet.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.ocpsoft.rewrite</groupId>
+                <artifactId>rewrite-config-prettyfaces</artifactId>
+                <version>${rewrite.servlet.version}</version>
+            </dependency>
+        </dependencies>
         
     </dependencyManagement>
 

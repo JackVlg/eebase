@@ -39,6 +39,25 @@
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
+        
+        <!-- Third party -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <classifier>jakarta</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>primefaces-extensions</artifactId>
+            <classifier>jakarta</classifier>
+        </dependency>
+        
     </dependencies>
 
     <build>
