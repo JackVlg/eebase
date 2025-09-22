@@ -34,24 +34,33 @@
 
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/WEB-INF/error-pages/error-page.xhtml</location>
+        <location>/error-pages/error-page.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>tech.eebase.security.AccessDeniedException</exception-type>
-        <location>/WEB-INF/error-pages/access-denied.xhtml</location>
+        <location>/error-pages/access-denied.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>jakarta.faces.application.ViewExpiredException</exception-type>
-        <location>/WEB-INF/error-pages/expired.xhtml</location>
+        <location>/error-pages/expired.xhtml</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/error-pages/404.xhtml</location>
+        <location>/error-pages/404.xhtml</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/error-pages/500.xhtml</location>
+        <location>/error-pages/500.xhtml</location>
     </error-page>
+
+    <filter>
+        <filter-name>SecurityContext Filter</filter-name>
+        <filter-class>tech.eebase.web.SecurityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecurityContext Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
