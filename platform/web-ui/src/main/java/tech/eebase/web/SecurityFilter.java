@@ -25,13 +25,14 @@ public class SecurityFilter implements Filter {
     private static final List<String> UNSECURED_URI;
     static {
         UNSECURED_URI = new ArrayList<>();
-        UNSECURED_URI.add("/public");
+        UNSECURED_URI.add("/public/");
+        UNSECURED_URI.add("/static/");
         UNSECURED_URI.add("/jakarta.faces.resource/");
         UNSECURED_URI.add("/omnifaces.push/");
         UNSECURED_URI.add("/favicon.ico");
         UNSECURED_URI.add("/login.xhtml");
-        //UNSECURED_URI.add("/expired.xhtml");
-        //UNSECURED_URI.add("/500.xhtml");
+        UNSECURED_URI.add("/expired.xhtml");
+        UNSECURED_URI.add("/500.xhtml");
         UNSECURED_URI.add("/access-denied.xhtml");
         UNSECURED_URI.add("/error-page.xhtml");
     }
@@ -50,7 +51,7 @@ public class SecurityFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
         
-        LOG.trace("********** {}", requestURI);
+        LOG.info("********** {}", requestURI);
         
         for (int i = 0; i < UNSECURED_URI.size(); i++) {
             if (requestURI.startsWith(UNSECURED_URI.get(i))) {

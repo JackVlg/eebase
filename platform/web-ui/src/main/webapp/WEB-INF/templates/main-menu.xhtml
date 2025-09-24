@@ -1,0 +1,53 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="jakarta.faces.html"
+        xmlns:ui="jakarta.faces.facelets">
+
+    main menu
+    <div class="left_menu">
+<!--         <a class="prev_btn flex align-items-center justify-content-center"><i class="fa fa-chevron-up"/></a> -->
+<!--         <div class="lm_links"> -->
+<!--             <div class="lm_links_inner"> -->
+<!--                 <ui:repeat value="#{mainMenuBean.menuItems}" var="menuItem" varStatus="varMenuItem"> -->
+<!--                     <h:panelGroup rendered="#{request.isUserInRole(menuItem.privilege)}"> -->
+<!--                         <a id="#{menuItem.title}" href="#{menuItem.url}" data-menu="#{menuItem.haveSubMenu ? 'menu' += varMenuItem.index : ''}" onclick="#{menuItem.onClick}" -->
+<!--                            class="#{menuItem.haveSubMenu ? 'open_toggle' : ''} flex align-items-center justify-content-center"> -->
+<!--                             <div> -->
+<!--                                 <i class="#{menuItem.icon} fa-2x" style="color: #{menuItem.iconColor}"/> -->
+<!--                                 <span>#{menuItem.title}</span> -->
+<!--                             </div> -->
+<!--                         </a> -->
+<!--                     </h:panelGroup> -->
+<!--                 </ui:repeat> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <a class="next_btn flex align-items-center justify-content-center"><i class="fa fa-chevron-down"/></a> -->
+    </div>
+
+<!--     <ui:repeat value="#{mainMenuBean.menuItems}" var="menuItem" varStatus="varMenuItem"> -->
+<!--         <h:panelGroup rendered="#{menuItem.haveSubMenu}"> -->
+<!--             <div id="menu#{varMenuItem.index}" class="left_menu_toggle"> -->
+<!--                 <a class="lmt_back"/> -->
+<!--                 <div class="lmt_title">#{menuItem.title}</div> -->
+<!--                 <ul class="lmt_list"> -->
+<!--                     <ui:repeat value="#{menuItem.subMenuItems}" var="subMenuItem"> -->
+<!--                         <h:panelGroup rendered="#{request.isUserInRole(subMenuItem.privilege)}"> -->
+<!--                             <li class="#{subMenuItem.haveSubMenu ? 'lmt_toggle' : ''}"> -->
+<!--                                 <a id="#{subMenuItem.title}" href="#{subMenuItem.url}" onclick="#{subMenuItem.onClick}">#{subMenuItem.title}</a> -->
+<!--                                 <ul> -->
+<!--                                     <ui:repeat value="#{subMenuItem.subMenuItems}" var="subSubMenuItem"> -->
+<!--                                         <h:panelGroup rendered="#{request.isUserInRole(subSubMenuItem.privilege)}"> -->
+<!--                                             <li> -->
+<!--                                                 <a id="#{subSubMenuItem.title}" href="#{subSubMenuItem.url}" onclick="#{subSubMenuItem.onClick}">#{subSubMenuItem.title}</a> -->
+<!--                                             </li> -->
+<!--                                         </h:panelGroup> -->
+<!--                                     </ui:repeat> -->
+<!--                                 </ul> -->
+<!--                             </li> -->
+<!--                         </h:panelGroup> -->
+<!--                     </ui:repeat> -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--         </h:panelGroup> -->
+<!--     </ui:repeat> -->
+</ui:composition>

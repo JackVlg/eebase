@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{appSettings.systemName} - <ui:insert name="title"/>${title}</title>
+        <ui:include src="/WEB-INF/templates/head.xhtml"/>
+    </h:head>
+
+    <h:body styleClass="main-body">
+	    <h:form id="growlForm">
+	        <p:growl id="growl" showDetail="true" sticky="false" showSummary="false" life="10000" keepAlive="true"/>
+	    </h:form>
+	    
+        <div class="global-container">
+            <div class="top-container">
+                <div class="logo-container">
+                    Logo
+                </div>
+                <div class="head-container">
+                    <ui:include src="/WEB-INF/templates/topbar.xhtml"/>
+                </div>
+            </div>
+
+            <div class="under-head-container">
+                <div class="main-menu-container">
+                    <ui:include src="/WEB-INF/templates/main-menu.xhtml"/>
+                </div>
+                <div class="content-container">
+                    <ui:insert name="content"/>
+                    
+			       <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			           <h:form>
+			               <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes eebase_button_marine" icon="ui-icon-check"/>
+			               <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no eebase_button_red" icon="ui-icon-close"/>
+			           </h:form>
+			       </p:confirmDialog>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
