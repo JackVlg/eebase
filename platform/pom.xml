@@ -114,12 +114,6 @@
             </dependency>
             
             <dependency>
-                <groupId>org.primefaces.themes</groupId>
-                <artifactId>all-themes</artifactId>
-                <version>${primefaces.themes.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.primefaces.extensions</groupId>
                 <artifactId>primefaces-extensions</artifactId>
                 <version>${primefaces.extensions.version}</version>

@@ -20,27 +20,33 @@
         <div class="global-container">
             <div class="top-container">
                 <div class="logo-container">
-                    Logo
+                    <img src="/static/images/logo.png" height="100%" alt="logo"/>
                 </div>
-                <div class="head-container">
+                <div class="topbar-container">
                     <ui:include src="/WEB-INF/templates/topbar.xhtml"/>
                 </div>
             </div>
 
             <div class="under-head-container">
-                <div class="main-menu-container">
-                    <ui:include src="/WEB-INF/templates/main-menu.xhtml"/>
-                </div>
-                <div class="content-container">
-                    <ui:insert name="content"/>
-                    
-			       <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			           <h:form>
-			               <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes eebase_button_marine" icon="ui-icon-check"/>
-			               <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no eebase_button_red" icon="ui-icon-close"/>
-			           </h:form>
-			       </p:confirmDialog>
-                </div>
+				<p:splitter style="width:100%; height:calc(100vh - 50px);">
+				    <p:splitterPanel size="10" minSize="2">
+				        <div style="height: 100%; overflow: auto;">
+				            <ui:include src="/WEB-INF/templates/main-menu.xhtml"/>
+				        </div>
+				    </p:splitterPanel>
+				    <p:splitterPanel size="90" minSize="90">
+				        <div style="height: 100%; overflow: auto;">
+					        <ui:insert name="content"/>
+					         
+					        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					            <h:form>
+					                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes eebase_button_marine" icon="ui-icon-check"/>
+					                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no eebase_button_red" icon="ui-icon-close"/>
+					            </h:form>
+					        </p:confirmDialog>
+					    </div>
+				    </p:splitterPanel>
+				</p:splitter>            
             </div>
         </div>
     </h:body>

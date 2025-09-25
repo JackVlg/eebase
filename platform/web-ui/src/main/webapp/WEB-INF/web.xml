@@ -6,10 +6,10 @@
 
     <display-name>Aura-Web-UI</display-name>
 
-    <context-param>
-        <param-name>primefaces.THEME</param-name>
-        <param-value>bootstrap</param-value>
-    </context-param>
+<!--     <context-param> -->
+<!--         <param-name>primefaces.THEME</param-name> -->
+<!--         <param-value>bootstrap</param-value> -->
+<!--     </context-param> -->
 
     <context-param>
         <param-name>jakarta.faces.FACELETS_REFRESH_PERIOD</param-name>

@@ -4,5 +4,8 @@
         xmlns:ui="jakarta.faces.facelets"
         xmlns:p="http://primefaces.org/ui">
 
-topbar
+    <h:form id="topbarForm" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-end;">
+	    <p:inputText size="20" style="margin-right:10px;" placeholder="search"/>
+	    <img src="/static/images/profile.png" alt="Profile" width="32" height="32" class="avatar circle" style="margin-right:15px;"/>
+	</h:form>
 </ui:composition>
