@@ -15,10 +15,10 @@
 <!-- 			<var>msg</var> -->
 <!-- 		</resource-bundle> -->
 
-<!-- 		<resource-bundle> -->
-<!-- 			<base-name>ru.auraep.utils.AuraResourceBundle</base-name> -->
-<!-- 			<var>msg</var> -->
-<!-- 		</resource-bundle> -->
+		<resource-bundle>
+			<base-name>tech.eebase.web.EEBaseResourceBundle</base-name>
+			<var>msg</var>
+		</resource-bundle>
 
 
 		<message-bundle>msg</message-bundle>

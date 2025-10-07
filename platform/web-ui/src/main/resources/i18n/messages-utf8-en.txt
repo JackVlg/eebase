@@ -1,0 +1,2 @@
+Search=Search
+server_error=Server error, please contact system administrator

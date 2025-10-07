@@ -3,9 +3,11 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         template="/WEB-INF/templates/main-page.xhtml">
     
-    <ui:define name="title">${msg.NOT_FOUND}</ui:define>
+    <ui:define name="title">${msg.TASKS_TITLE}</ui:define>
     
     <ui:define name="content">
-        ${msg.NOT_FOUND}
+        No tasks
+        ${indexPage.name}
+        end
     </ui:define>
 </ui:composition>

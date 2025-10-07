@@ -51,7 +51,7 @@ public class SecurityFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
         
-        LOG.info("********** {}", requestURI);
+        LOG.trace("********** {}", requestURI);
         
         for (int i = 0; i < UNSECURED_URI.size(); i++) {
             if (requestURI.startsWith(UNSECURED_URI.get(i))) {

@@ -1,0 +1,27 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/WEB-INF/templates/main-page.xhtml">
+    
+    <ui:define name="title">ERROR PAGE</ui:define>
+    
+    <ui:define name="content">
+        <p:panel rendered="#{facesContext.application.projectStage eq 'Development'}">
+            <p:panel header="Root cause">
+                <pre>
+#{errorHandler.rootCause}
+                </pre>
+            </p:panel>
+            <p:panel header="Full stack trace" toggleable="true" collapsed="true">
+                <pre>
+#{errorHandler.fullStackTrace}
+                </pre>
+            </p:panel>
+        </p:panel>
+        
+        <p:panel rendered="#{facesContext.application.projectStage ne 'Development'}">
+            #{msg.server_error}
+        </p:panel>
+    </ui:define>
+</ui:composition>
