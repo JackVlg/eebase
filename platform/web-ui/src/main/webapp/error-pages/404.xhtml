@@ -3,9 +3,12 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         template="/WEB-INF/templates/main-page.xhtml">
     
-    <ui:define name="title">${msg.NOT_FOUND}</ui:define>
+    <ui:define name="title">#{msg.Page_not_found_title}</ui:define>
     
     <ui:define name="content">
-        ${msg.NOT_FOUND}
+        #{msg.Page_not_found_text}: #{errorHandler.requestURI}
+        <p/>
+        #{msg.You_came_from_the_page}: #{errorHandler.referrer}
+        
     </ui:define>
 </ui:composition>

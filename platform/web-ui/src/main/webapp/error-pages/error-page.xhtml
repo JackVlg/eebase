@@ -4,7 +4,7 @@
         xmlns:p="http://primefaces.org/ui"
         template="/WEB-INF/templates/main-page.xhtml">
     
-    <ui:define name="title">ERROR PAGE</ui:define>
+    <ui:define name="title">#{msg.Server_error_title}</ui:define>
     
     <ui:define name="content">
         <p:panel rendered="#{facesContext.application.projectStage eq 'Development'}">
@@ -21,7 +21,7 @@
         </p:panel>
         
         <p:panel rendered="#{facesContext.application.projectStage ne 'Development'}">
-            #{msg.server_error}
+            #{msg.Server_error_text}
         </p:panel>
     </ui:define>
 </ui:composition>

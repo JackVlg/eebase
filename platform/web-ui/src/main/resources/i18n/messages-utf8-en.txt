@@ -1,2 +1,6 @@
 Search=Search
-server_error=Server error, please contact system administrator
+Server_error_title=Server error
+Server_error_text=Server error, please contact system administrator
+Page_not_found_title=Page not found
+Page_not_found_text=Page not found
+You_came_from_the_page=You came from the page

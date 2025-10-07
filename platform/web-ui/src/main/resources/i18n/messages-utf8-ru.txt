@@ -1,2 +1,6 @@
 Search=Поиск
-server_error=Ошибка на сервере, обратитесь к системному администратору
+Server_error_title=Ошибка на сервере
+Server_error_text=Ошибка на сервере, обратитесь к системному администратору
+Page_not_found_title=Страница не найдена
+Page_not_found_text=Страница не найдена
+You_came_from_the_page=Вы пришли со страницы
