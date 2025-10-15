@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>EEBase</title>
+    <link rel="stylesheet" href="/static/css/eebase.css"/>
+</h:head>
+
+<h:body styleClass="login-body">
+    <script>
+    function doSignIn() {
+	    var l = document.getElementById("lf:login").value;
+	    var p = document.getElementById("lf:pass").value;
+	    let xhr = new XMLHttpRequest();
+	    let url = '/sign-in-check';
+	    xhr.open("POST", url, true);
+	    
+	    xhr.onreadystatechange = function () {
+	    	if (xhr.readyState === 4) {
+	    		  enableEnter();
+	    		  hideProcessing();
+	    	}
+	        if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+	        	let data = JSON.parse(xhr.responseText);
+	        	location.reload();
+            } else if (xhr.readyState === 4 &amp;&amp; xhr.status === 401) {
+                let data = JSON.parse(xhr.responseText);
+                console.log(data.msg);
+                
+                document.getElementById("ae1").style.display = 'inline';
+	        } else if (xhr.readyState === 4 &amp;&amp; xhr.status !== 200) {
+                let data = JSON.parse(xhr.responseText);
+	            console.error('Error:', xhr.status, data.msg);
+                document.getElementById("ae2").style.display = 'inline';
+	        }
+	    };
+	    
+	    xhr.onerror = function() {
+            document.getElementById("ae0").style.display = 'inline';
+            enableEnter();
+            hideProcessing();
+	        console.error('Network error occurred.');
+	    };
+
+	    clearErrors();
+	    disableEnter();
+        document.getElementById("pi").style.display = 'inline';
+	    xhr.send("l=" + l + "&amp;p=" + p);
+    }
+    
+    function clearErrors() {
+    	document.getElementById("ae0").style.display = 'none';
+    	document.getElementById("ae1").style.display = 'none';
+    	document.getElementById("ae2").style.display = 'none';
+    }
+    function hideProcessing() {
+        document.getElementById("pi").style.display = 'none';
+    }
+    
+    function disableEnter() {
+    	document.getElementById("lf:enter").classList.add('ui-state-disabled');
+    }
+    function enableEnter() {
+        document.getElementById("lf:enter").classList.remove('ui-state-disabled');
+    }
+    </script>
+
+    <div class="login-bigdiv">
+    
+        <h:form id="lf">
+            <div class="login-panel">
+                <div style="display: flex; flex-wrap: wrap; box-sizing: border-box; position: relative;">
+                    <img src="/static/images/user.png" alt="" style="width: 67px; height: 68px; position: absolute; top: -60px; left: 50%; margin-left: -33px;"/>
+                </div>
+                <h1>
+                    <h:outputText value="#{msg.Sign_In}"></h:outputText>
+                </h1>
+                <h3 id="pi" style="display: none;"><span class="login_processing">#{msg.Auth_processing}</span></h3>
+                <h3 id="ae0" style="display: none;"><span class="login_error">#{msg.Network_error}</span></h3>
+                <h3 id="ae1" style="display: none;"><span class="login_error">#{msg.Bad_login_or_password}</span></h3>
+                <h3 id="ae2" style="display: none;"><span class="login_error">Unknown error</span></h3>
+                <div style="margin-top:4px;">
+                    <p:inputText id="login" style="width:200px;" placeholder="#{msg.Login}"/>
+                    <p/>
+                    <p:password id="pass" style="width:200px;" placeholder="#{msg.Password}"/>
+                    <p/>
+                    <p:commandButton id="enter" value="#{msg.Enter}" onclick="doSignIn();" type="button"/>
+                </div>
+            </div>
+        </h:form>
+         
+    </div>
+</h:body>
+
+
+</html>

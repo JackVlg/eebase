@@ -30,7 +30,7 @@ public class SecurityFilter implements Filter {
         UNSECURED_URI.add("/jakarta.faces.resource/");
         UNSECURED_URI.add("/omnifaces.push/");
         UNSECURED_URI.add("/favicon.ico");
-        UNSECURED_URI.add("/login.xhtml");
+        UNSECURED_URI.add("/sign-in");
         UNSECURED_URI.add("/expired.xhtml");
         UNSECURED_URI.add("/500.xhtml");
         UNSECURED_URI.add("/access-denied.xhtml");
@@ -75,7 +75,7 @@ public class SecurityFilter implements Filter {
                 throw new ServletException(getRootCause(e));
             }
         } else {
-            String loginPage = "/login.xhtml";
+            String loginPage = "/sign-in.xhtml";
             RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher(loginPage);
             dispatcher.forward(req, response);
         }

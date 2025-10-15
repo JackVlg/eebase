@@ -21,7 +21,7 @@
 		</resource-bundle>
 
 
-		<message-bundle>msg</message-bundle>
+		<message-bundle>i18n.Internal_Messages</message-bundle>
 	</application>
 
 <!-- 	<factory> -->

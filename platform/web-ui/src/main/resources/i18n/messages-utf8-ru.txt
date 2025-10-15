@@ -1,3 +1,10 @@
+Sign_In=Вход в аккаунт
+Login=Имя пользователя
+Password=Пароль
+Auth_processing=Производится аутентификация... 
+Network_error=Проблема со связью
+Bad_login_or_password=Неправильный логин или пароль
+Enter=Войти
 Search=Поиск
 Server_error_title=Ошибка на сервере
 Server_error_text=Ошибка на сервере, обратитесь к системному администратору

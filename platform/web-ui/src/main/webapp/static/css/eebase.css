@@ -54,3 +54,35 @@
 .circle {
     border-radius: var(--borderRadius-full, 50%) !important;
 }
+
+.login-body {
+    max-width: calc(100%);
+    height: calc(100vh);
+    margin: 0px;
+}
+
+.login-bigdiv {
+    width: 100%;
+    height: calc(100vh);
+    margin: 0px;
+    background-image: url("/static/images/login.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-panel {
+    display: inline-block;
+    background:rgba(255, 255, 255, 0.6);
+    padding: 25px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.login_error {
+    color: red;
+}
+.login_processing {
+    color: green;
+}

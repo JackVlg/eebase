@@ -1,3 +1,10 @@
+Sign_In=Sign In
+Login=Login
+Password=Password
+Auth_processing=Auth processing...
+Network_error=Network error
+Bad_login_or_password=Bad login or password
+Enter=Enter
 Search=Search
 Server_error_title=Server error
 Server_error_text=Server error, please contact system administrator
