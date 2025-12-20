@@ -1,14 +1,13 @@
 <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        template="/WEB-INF/templates/main-page.xhtml">
-    
-    <ui:define name="title">#{msg.Page_not_found_title}</ui:define>
-    
-    <ui:define name="content">
-        #{msg.Page_not_found_text}: #{errorHandler.requestURI}
-        <p/>
-        #{msg.You_came_from_the_page}: #{errorHandler.referrer}
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
         
-    </ui:define>
+        <ui:fragment rendered="#{request.userPrincipal ne null}">
+            <ui:include src="./404-signedin.xhtml" />
+        </ui:fragment>
+    
+        <ui:fragment rendered="#{request.userPrincipal eq null}">
+            <ui:include src="./404-anonymous.xhtml" />
+        </ui:fragment>
+    
 </ui:composition>

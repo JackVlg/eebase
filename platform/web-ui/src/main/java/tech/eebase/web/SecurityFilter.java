@@ -1,6 +1,7 @@
 package tech.eebase.web;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -19,8 +19,6 @@ import jakarta.servlet.http.HttpServletRequest;
 public class SecurityFilter implements Filter {
 
     private static final Logger LOG = LoggerFactory.getLogger(SecurityFilter.class);
-    
-    private String roleRequired;
     
     private static final List<String> UNSECURED_URI;
     static {
@@ -38,14 +36,6 @@ public class SecurityFilter implements Filter {
     }
     
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        roleRequired = filterConfig.getInitParameter("tech.eebase.REQUIRED_ROLE");
-        if (roleRequired == null) {
-            roleRequired = "USER";
-        }
-    }
-    
-    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
@@ -60,7 +50,9 @@ public class SecurityFilter implements Filter {
             }
         }
         
-        boolean userAuthenticated = req.isUserInRole(roleRequired);
+        
+        Principal userPrincipal = req.getUserPrincipal();
+        boolean userAuthenticated = userPrincipal != null;
         
         if (userAuthenticated) {
             if (requestURI.contains("/logout")) {
