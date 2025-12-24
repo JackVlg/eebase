@@ -1,4 +1,4 @@
-package tech.eebase.web.managed.beans.security;
+package tech.eebase.web.servlets;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,6 +18,7 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import tech.eebase.web.model.SignInResponseBody;
 
 public class SignInCheckServlet implements Servlet {
 

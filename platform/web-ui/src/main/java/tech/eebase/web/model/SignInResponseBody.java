@@ -1,4 +1,4 @@
-package tech.eebase.web.managed.beans.security;
+package tech.eebase.web.model;
 
 public class SignInResponseBody {
     private final String msg;

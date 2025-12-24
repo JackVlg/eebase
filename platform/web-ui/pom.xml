@@ -11,12 +11,18 @@
     <packaging>war</packaging>
     
     <dependencies>
+        <dependency>
+            <groupId>tech.eebase</groupId>
+            <artifactId>security-internal-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
     
         <!-- Third party -->
         
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         
         <dependency>

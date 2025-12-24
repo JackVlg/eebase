@@ -11,5 +11,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>security-internal-api</module>
+        <module>security-impl</module>
     </modules>
 </project>

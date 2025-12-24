@@ -29,6 +29,12 @@
         </dependency>
         <dependency>
             <groupId>tech.eebase</groupId>
+            <artifactId>security-impl</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>tech.eebase</groupId>
             <artifactId>directories-impl</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>ejb</type>
@@ -93,6 +99,12 @@
                             <artifactId>built-in-directories</artifactId>
                             <excluded>false</excluded>
                         </jarModule>
+                        <ejbModule>
+                            <groupId>tech.eebase</groupId>
+                            <artifactId>directories-impl</artifactId>
+                            <excluded>false</excluded>
+                        </ejbModule>
+                        
                         <jarModule>
                             <groupId>tech.eebase</groupId>
                             <artifactId>security-internal-api</artifactId>
@@ -100,9 +112,10 @@
                         </jarModule>
                         <ejbModule>
                             <groupId>tech.eebase</groupId>
-                            <artifactId>directories-impl</artifactId>
+                            <artifactId>security-impl</artifactId>
                             <excluded>false</excluded>
                         </ejbModule>
+                        
                         <webModule>
                             <groupId>tech.eebase</groupId>
                             <artifactId>web-ui</artifactId>
